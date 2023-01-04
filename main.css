@@ -1,91 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root{
+    --body-color: #B1DEFF;
+    --main-color: #526ad4;
+    --delete-color: #f15b5b;
+    --default: rgba(0, 0, 0, 0.3);
+}
+
 *{
     box-sizing: border-box;
-}
-body{
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    background-color: #B1DEFF;
     margin: 0;
 }
-.deal-body{
-    width: 910px;
-    height: 710px;
-    background-color: #FFEDD9;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+body{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--body-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    padding: 32px;
+    font-weight: 300;
+}
+.deal__body{
+    padding: 32px;
+    background-color: #fff;
+    width: 90vw;
     border-radius: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
-.form-group{
+.deal__content {
+}
+.deal__title {
+}
+.deal__new {
+    --size: 50px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 20px 60px 0;
-}
-.deal-text{
-    background: none;
-    border: 2px solid #CFBC89;
-    border-radius: 15px;
-    width: 565px;
-    height: 52px;
-    padding-left: 15px;
-}
-.deal-text::placeholder{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: underline;
-    color: #585757;
-}
-.submit-button{
-    width: 192px;
-    height: 52px;
-    background: #B67E7E;
-    border-radius: 15px;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-}
+    margin: 16px 0 32px;
 
-.submit-button:hover {
-    animation-name: background-color;
-    animation-duration: 1000ms;
-    animation-fill-mode: forwards;
 }
-
-@keyframes background-color {
-    100% {
-        background-color: #814f4f;
-    }
+.deal__new input{
+    margin-right: 16px;
+    font-size: 18px;
+    padding: 8px 16px;
+    height: var(--size);
+    border: 1px solid var(--default);
+    border-radius: 5px;
+    flex-grow: 1;
 }
-
-.checkbox{
-    width: 782px;
-    height: 55px;
-    background: #D9D9D9;
-    border-radius: 15px;
-    margin: 0 auto;
-    margin-top: 40px;
+.deal__add,
+.deal__task-del {
+    cursor: pointer;
+    text-align: center;
+    width: var(--size);
+    height: var(--size);
+    line-height: calc(var(--size)*0.95) ;
+    font-size: 32px;
+    font-weight: 200;
+    /* border: 1px solid var(--default); */
+    border-radius: var(--size);
+    background: var(--main-color);
+    color: white;
+}
+.deal__list {
+}
+.deal__task {
+    --size: 36px;
     display: flex;
+    min-height: var(--size);
     align-items: center;
-    padding-left: 20px;
 }
-.input-checkbox{
-    background: none;
-    min-height: 1.25rem;
-    min-width: 1.25rem;
+.deal__task:hover .deal__task-del{
+    display: block;
 }
-label{
+.deal__checkbox {
+    margin-right: 16px;
+}
+.deal__task-text {
     font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+}
+.deal__task-del {
+    display: none;
+    margin-left: auto;
+    margin-right: 0;
+    line-height: calc(var(--size)*0.88);
+    font-size: 44px;
 }

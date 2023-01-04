@@ -8,14 +8,22 @@
     <title>What to do</title>
 </head>
 <body>
-    <div class="deal-body">
-        <form action="#" class="form-group">
-            <input type="text" name="deal" id="deal" class="deal-text" placeholder="Enter your deal" required>
-            <button type="submit" id="submit" class="submit-button">Post</button>
-        </form>
-        <div class="checkbox">
-            <label><input name="prefer" value="some text" type="checkbox" class="input-checkbox"/>Some text</label>
+    <div class="deal__body">
+        <div class="deal__content">
+            <h1 class="deal__title">All deals</h1>
+            <div class="deal__new">
+                <input type="text" placeholder="New deal">
+                <div class="deal__add">+</div>
+            </div>
+            <div class="deal__list">
+                <div class="deal__task">
+                    <label class="deal__checkbox"><input type="checkbox"><div></div></label>
+                    <div class="deal__task-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</div>
+                    <div class="deal__task-del">-</div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
