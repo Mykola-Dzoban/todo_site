@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root{
-    --body-color: #B1DEFF;
+    --second-color: #B1DEFF;
     --main-color: #526ad4;
     --delete-color: #f15b5b;
     --default: rgba(0, 0, 0, 0.3);
@@ -14,30 +14,30 @@
 body{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--body-color);
+    background-color: var(--second-color);
     height: 100vh;
     display: flex;
     justify-content: center; 
     padding: 32px;
     font-weight: 300;
 }
-.deal__body{
+.todo__body{
     padding: 32px;
     background-color: #fff;
     width: 90vw;
     border-radius: 16px;
 }
-.deal__content {
+.todo__content {
 }
-.deal__title {
+.todo__title {
 }
-.deal__new {
+.todo__new {
     --size: 50px;
     display: flex;
     margin: 16px 0 32px;
 
 }
-.deal__new input{
+.todo__new input{
     margin-right: 16px;
     font-size: 18px;
     padding: 8px 16px;
@@ -46,8 +46,8 @@ body{
     border-radius: 5px;
     flex-grow: 1;
 }
-.deal__add,
-.deal__task-del {
+.todo__add,
+.todo__task-del {
     cursor: pointer;
     text-align: center;
     width: var(--size);
@@ -60,27 +60,62 @@ body{
     background: var(--main-color);
     color: white;
 }
-.deal__list {
+.todo__list > *:not(:last-child) {
+    margin-bottom: 8px;
 }
-.deal__task {
+.todo__task {
+    cursor: default;
     --size: 36px;
     display: flex;
     min-height: var(--size);
     align-items: center;
 }
-.deal__task:hover .deal__task-del{
+.todo__task_complete .todo__task-text{
+    text-decoration:line-through;
+    color: var(--default);
+}
+.todo__task:hover .todo__task-del{
     display: block;
 }
-.deal__checkbox {
+.todo__checkbox {
     margin-right: 16px;
 }
-.deal__task-text {
+.todo__checkbox input{
+    display: none;
+}
+.todo__checkbox input:checked + div {
+    background-color: rgb(215, 250, 199);
+}
+.todo__checkbox input:checked + div::after {
+    display: block;
+}
+.todo__checkbox div{
+    --size: 28px;
+    cursor: pointer;
+    height: var(--size);
+    width: var(--size);
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    position: relative;
+}
+.todo__checkbox div::after{
+    text-align: center;
+    content: '✔️';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.todo__task-text {
     font-size: 20px;
 }
-.deal__task-del {
+.todo__task-del {
     display: none;
     margin-left: auto;
     margin-right: 0;
     line-height: calc(var(--size)*0.88);
     font-size: 44px;
+    background: var(--delete-color);
 }
