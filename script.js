@@ -1,8 +1,11 @@
 const dom = {
     new: document.getElementById('new'),
     add: document.getElementById('add'),
-    tasks: document.getElementById('tasks')
+    tasks: document.getElementById('tasks'),
+    count: document.getElementById('count')
 };
+
+//tasks array
 
 const tasks = [];
 
@@ -53,7 +56,7 @@ function tasksRender(list){
 
         const taskHtml = `
             <div id="${task.id}" class="${cls}">
-                <label class="todo__checkbox"><input type="checkbox" ${checked}><div></div></label>
+                <label class="todo__checkbox"><input type="checkbox" ${checked}><div class="todo__checkbox-div"></div></label>
                 <div class="todo__task-text">${task.text}</div>
                 <div class="todo__task-del">-</div>
             </div>
@@ -63,4 +66,51 @@ function tasksRender(list){
     })
 
     dom.tasks.innerHTML = htmlList;
+    renderTasksCount(list);
+}
+
+// check click on checkbox
+
+dom.tasks.onclick = (event) => {
+    const target = event.target;
+    const isCheckboxEl = target.classList.contains('todo__checkbox-div');
+    const isDelEl = target.classList.contains('todo__task-del');
+    if(isCheckboxEl){
+        const task = target.parentElement.parentElement;
+        const taskId = task.getAttribute('id');
+        changeTaskStatus(taskId, tasks);
+        tasksRender(tasks);
+    }
+    if(isDelEl){
+        const task = target.parentElement;
+        const taskId = task.getAttribute('id');
+        deleteTask(taskId, tasks);
+        tasksRender(tasks);
+    }
+}
+
+// function that change task status
+
+function changeTaskStatus(id, list){
+    list.forEach((task) => {
+        if(task.id == id){
+            task.isComplete = !task.isComplete;
+        }
+    })
+}
+
+// function that delete task
+
+function deleteTask(id, list){
+    list.forEach((task, idx) => {
+        if(task.id == id){
+            list.splice(idx, 1);
+        }
+    })
+}
+
+// tasks counter
+
+function renderTasksCount(list){
+    dom.count.innerHTML = list.length;
 }
